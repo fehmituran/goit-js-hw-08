@@ -8,8 +8,7 @@ const LOCALSTORAGE_KEY = "feedback-form-state";
 const getData = () => {
     const data = load(LOCALSTORAGE_KEY)
         form.elements.message.value = data.message || "";
-        form.elements.email.value = data.email || "";
-        return data;    
+        form.elements.email.value = data.email || "";  
 }
 
 getData();
@@ -25,8 +24,7 @@ form.addEventListener("input", _.throttle(saveData, 500));
 const submitData = (event) => {
     event.preventDefault();
     form.reset();
-    const data = getData();
-    console.log(data);
+    console.log(load(LOCALSTORAGE_KEY));
     remove(LOCALSTORAGE_KEY);
 }
 
